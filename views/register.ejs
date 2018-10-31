@@ -1,9 +1,35 @@
 <% include partials/header %>
-<h1>Sign Up!</h1>
-
-<form action="/register" method="POST">
-    <input type = "text" name="username" placeholder="Username">
-    <input type = "password" name="password" placeholder="Password">
-    <input type="submit" Value="Sign Up">
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+      <div class="input-group mb-3">
+        <h1>Sign Up!</h1>
+      </div>
+      <form action="/register" method="POST">
+        <div class="input-group mb-3">
+            <input type="name"  name="username" id="username" placeholder="Username" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <input type="email" name="email" id="email" placeholder="Email" class="form-control form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <input type="email" name="cemail" id="cemail" placeholder="Confirm Email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" name="password" id="password" placeholder="Password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <input type="submit" Value="Sign Up">
+        </div>
+      </form>
+      </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
 <% include partials/footer %>

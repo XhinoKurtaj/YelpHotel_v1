@@ -4,17 +4,17 @@ var passport = require("passport");
 var User     = require("../models/user");
 
 router.get("/", function(req, res){
-   res.render("landing"); 
+   res.render("landing");
 });
 
 //show register form
 router.get("/register", function(req, res) {
-   res.render("register"); 
+   res.render("register");
 });
 
 // handle sign up logic
 router.post("/register", function(req, res) {
-    var newUser = new User({username: req.body.username});
+    var newUser = new User({username: req.body.username, email: req.body.email});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
@@ -33,12 +33,12 @@ router.get("/login", function(req, res) {
 });
 
 // handling login logic
-router.post("/login", passport.authenticate("local", 
+router.post("/login", passport.authenticate("local",
   {
       successRedirect: "/hotels",
       failureRedirect: "/login"
   }), function(req, res) {
-   
+
 });
 
 //logic logut route
@@ -55,5 +55,5 @@ function isLoggedIn(req, res, next){
        req.flash("error", "Please Login First!");
        res.redirect("/login");
     }
-    
-module.exports = router;    
+
+module.exports = router;
