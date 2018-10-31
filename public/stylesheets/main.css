@@ -1,0 +1,42 @@
+body{
+    background:aqua;
+}
+
+.img-thumbnail img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+}
+
+.img-thumbnail{
+    padding:2px;
+}
+
+.img-thumbnail .caption-full{
+    padding: 10px;
+}
+
+.card .text-right{
+    padding-top: 10px;
+}
+
+.me{
+    padding:10px;
+    background-color: #66ffcc;
+}
+
+.loged{
+    padding: 8px;
+
+}
+.loged a{
+    color: #00f1ff;
+}
+
+.delete-form{
+    display: inline;
+}
+
+#button-color{
+  background-color: #6495ED
+}
