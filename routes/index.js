@@ -13,7 +13,7 @@ router.get("/register", function(req, res) {
 });
 
 
-router.post("/register",isValid, function(req, res) {
+router.post("/register",isValid , function(req, res) {
     var newUser = new User({username: req.body.username,email: req.body.email});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
@@ -58,31 +58,30 @@ function isLoggedIn(req, res, next){
        res.redirect("/login");
     }
 
-// function isValid(req, res, next){
-//   var name = req.body.username;
-//   var email = req.body.email;
-//   var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test( email );
-//   var password = req.body.password;
-//   var passwordReg = /^(?=.*\d)(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(password);
-//   if(name.length > 3 && email && emailReg && password != passwordReg){
-//     return next();
-//   }else{
-//     req.flash("error", "Please enter at least three characters,Email format should be JohnDoe@example.com, Password should have atleast 8 characters, one upercase contains atleas one number");
-//     res.redirect("/register")
-//   }
-// }
+
+
 function isValid(req, res, next){
-  var name = req.body.username;
+  var confirmEmail = req.body.cemail;
+  var confirmPassword = req.body.cpassword;
   var email = req.body.email;
   var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test( email );
   var password = req.body.password;
   var passwordReg = /^(?=.*\d)(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(password);
-  if(name.length > 3 && email == emailReg && password == passwordReg){
-    return next();
-  }else{
-    req.flash("error", "Please enter at least three characters,Email format should be JohnDoe@example.com, Password should have atleast 8 characters, one upercase contains atleas one number");
-    res.redirect("/register")
+  if(!emailReg){
+    req.flash("error", "  Email format should be JohnDoe@example.com");
+    res.redirect("/register");
   }
-}
+  if(!passwordReg){
+    req.flash("error",  "Password should have atleast 8 characters one character one upperCase and one lowercase");
+    res.redirect("/register");
+  }
+  if(emailReg && passwordReg ){
+    return next();
+  }
+
+  }
+
+
+
 
 module.exports = router;
