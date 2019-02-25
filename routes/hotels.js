@@ -35,7 +35,7 @@ router.post("/hotels", isLoggedIn, function(req, res){
 }); 
 
 router.get("/hotels/new", isLoggedIn, function(req, res) {
-   res.render("hotels/new"); 
+   res.render("hotels/new");
 });
 
 router.get("/hotels/:id", function(req, res) {
@@ -92,7 +92,6 @@ function checkHotelOwnerShip(req, res, next){
                   }
             }
     });
-           
           }else{
           req.flash("error", "You need to be logged in to do that");
           res.redirect("back");

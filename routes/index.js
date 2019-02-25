@@ -58,8 +58,6 @@ function isLoggedIn(req, res, next){
        res.redirect("/login");
     }
 
-
-
 function isValid(req, res, next){
   var confirmEmail = req.body.cemail;
   var confirmPassword = req.body.cpassword;
